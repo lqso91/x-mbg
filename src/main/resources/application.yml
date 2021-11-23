@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.10.18:3306/yxyd_base?useSSL=false&useUnicode=true&characterEncoding=utf-8&rewriteBatchedStatements=true
+    username: yxyd_user
+    password: yxyd_user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: cn.lqso.mbg.model
+  mapper-locations: classpath:mapper/*Mapper.xml

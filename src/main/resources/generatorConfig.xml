@@ -1,0 +1,19 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="test" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://192.168.10.18:3306/yxyd_base"
+                        userId="yxyd_user" password="yxyd_user">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="cn.lqso.mbg.model" targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.lqso.mbg.mapper" targetProject="src/main/java"/>
+
+        <table tableName="yxyd_alarm" domainObjectName="Alarm" mapperName="AlarmMapper"/>
+    </context>
+</generatorConfiguration>
