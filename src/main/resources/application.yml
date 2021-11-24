@@ -8,3 +8,5 @@ spring:
 mybatis:
   type-aliases-package: cn.lqso.mbg.model
   mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

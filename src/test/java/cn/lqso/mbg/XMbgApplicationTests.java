@@ -1,5 +1,6 @@
 package cn.lqso.mbg;
 
+import cn.lqso.mbg.mapper.AlarmMapper;
 import cn.lqso.mbg.model.Alarm;
 import cn.lqso.mbg.model.AlarmExample;
 import cn.lqso.mbg.service.AlarmService;
@@ -15,14 +16,31 @@ class XMbgApplicationTests {
     @Resource
     private AlarmService alarmService;
 
+    @Resource
+    private AlarmMapper alarmMapper;
+
     @Test
-    void test() {
+    void testService() {
         AlarmExample example = new AlarmExample();
-        example.createCriteria().andUserNameEqualTo("luojie");
+        example.setLimit(10);
+        example.createCriteria().andUserNameEqualTo("admin");
 
         List<Alarm> alarms = alarmService.selectByExample(example);
         System.out.println(alarms.size());
 
         System.out.println(alarmService.count());
+    }
+
+    @Test
+    void testMapper() {
+        AlarmExample example = new AlarmExample();
+        example.setLimit(15);
+        example.createCriteria().andUserNameEqualTo("admin");
+        List<Alarm> alarms = alarmMapper.selectByExample(example);
+        System.out.println(alarms.size());
+
+        example.setLimit(null);
+        long count = alarmMapper.countByExample(example);
+        System.out.println(count);
     }
 }
